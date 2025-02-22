@@ -30,6 +30,7 @@ import { useToast } from "@/components/ui/use-toast";
 import ProductDetailsDialog from "@/components/shopping-view/product-details";
 import { getFeatureImages } from "@/store/common-slice";
 import './ShoppingHome.css'; // Import the CSS file
+import VideoSection from "@/components/shopping-view/videosection";
 
 const categoriesWithIcon = [
   { id: "stationery", label: "Stationery", icon: BookOpen },
@@ -253,6 +254,10 @@ function ShoppingHome() {
           </div>
         </div>
       </section>
+
+      <div>
+        <VideoSection />
+      </div>
 
 
       <section className="py-12">
