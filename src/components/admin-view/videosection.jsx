@@ -17,10 +17,9 @@ function VideoSection() {
             loop
             muted
             playsInline
-            className="w-full"
-            poster="/images/video-poster.jpg" // Optional poster image
+            className="w-full"// Optional poster image
           >
-            <source src="../../assets/thumsup.mp4" type="video/mp4" />
+            <source src="/images/thumsup.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 

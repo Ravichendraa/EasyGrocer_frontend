@@ -30,7 +30,7 @@ import { useToast } from "@/components/ui/use-toast";
 import ProductDetailsDialog from "@/components/shopping-view/product-details";
 import { getFeatureImages } from "@/store/common-slice";
 import './ShoppingHome.css'; // Import the CSS file
-import VideoSection from "@/pages/shopping-view/videosection";
+import VideoSection from "@/components/admin-view/videosection";
 
 const categoriesWithIcon = [
   { id: "stationery", label: "Stationery", icon: BookOpen },
