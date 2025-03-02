@@ -14,7 +14,7 @@ export const createNewOrder = createAsyncThunk(
   "/order/createNewOrder",
   async (orderData) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/order/create",
+      "https://easygrocer-backend.onrender.com/api/shop/order/create",
       orderData
     );
 
@@ -26,7 +26,7 @@ export const capturePayment = createAsyncThunk(
   "/order/capturePayment",
   async ({ paymentId, payerId, orderId }) => {
     const response = await axios.post(
-      "http://localhost:5000/api/shop/order/capture",
+      "https://easygrocer-backend.onrender.com/api/shop/order/capture",
       {
         paymentId,
         payerId,
@@ -42,7 +42,7 @@ export const getAllOrdersByUserId = createAsyncThunk(
   "/order/getAllOrdersByUserId",
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/order/list/${userId}`
+      `https://easygrocer-backend.onrender.com/api/shop/order/list/${userId}`
     );
 
     return response.data;
@@ -53,7 +53,7 @@ export const getOrderDetails = createAsyncThunk(
   "/order/getOrderDetails",
   async (id) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/order/details/${id}`
+      `https://easygrocer-backend.onrender.com/api/shop/order/details/${id}`
     );
 
     return response.data;

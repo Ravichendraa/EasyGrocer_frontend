@@ -13,7 +13,7 @@ export const addReview = createAsyncThunk(
   "/order/addReview",
   async (formdata) => {
     const response = await axios.post(
-      `http://localhost:5000/api/shop/review/add`,
+      `https://easygrocer-backend.onrender.com/api/shop/review/add`,
       formdata
     );
 
@@ -23,7 +23,7 @@ export const addReview = createAsyncThunk(
 
 export const getReviews = createAsyncThunk("/order/getReviews", async (id) => {
   const response = await axios.get(
-    `http://localhost:5000/api/shop/review/${id}`
+    `https://easygrocer-backend.onrender.com/api/shop/review/${id}`
   );
 
   return response.data;
@@ -33,7 +33,7 @@ export const fetchUserReviews = createAsyncThunk(
   "/review/fetchUserReviews",
   async (userId) => {
     const response = await axios.get(
-      `http://localhost:5000/api/shop/review/user/${userId}`
+      `https://easygrocer-backend.onrender.com/api/shop/review/user/${userId}`
     );
 
     return response.data.data; // Return the 'data' property containing reviews with product details

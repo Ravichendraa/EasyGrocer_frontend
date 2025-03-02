@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navigate } from "react-router-dom";
 import Address from "@/components/shopping-view/address";
 import UserCartItemsContent from "@/components/shopping-view/cart-items-content";
 import { Button } from "@/components/ui/button";
 import { createNewOrder } from "@/store/shop/order-slice";
-import { fetchAllAddresses } from "@/store/shop/address-slice";
-import { fetchCartItems } from "@/store/shop/cart-slice";
+// import { fetchAllAddresses } from "@/store/shop/address-slice";
+// import { fetchCartItems } from "@/store/shop/cart-slice";
 import { useToast } from "@/components/ui/use-toast";
 import img from "../../assets/account.jpg";
 
@@ -14,18 +14,18 @@ function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
   const { user } = useSelector((state) => state.auth);
   const { approvalURL } = useSelector((state) => state.shopOrder);
-const { addressList } = useSelector((state) => state.shopAddress);
+// const { addressList } = useSelector((state) => state.shopAddress);
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
   const [isPaymentStart, setIsPaymemntStart] = useState(false);
   const dispatch = useDispatch();
   const { toast } = useToast();
 
-  useEffect(() => {
-    if (user?.id) {
-      dispatch(fetchAllAddresses(user.id));
-      dispatch(fetchCartItems(user.id));
-    }
-  }, [dispatch, user]);
+  // useEffect(() => {
+  //   if (user?.id) {
+  //     dispatch(fetchAllAddresses(user.id));
+  //     dispatch(fetchCartItems(user.id));
+  //   }
+  // }, [dispatch, user]);
 
   const totalCartAmount =
     cartItems && cartItems.items && cartItems.items.length > 0
