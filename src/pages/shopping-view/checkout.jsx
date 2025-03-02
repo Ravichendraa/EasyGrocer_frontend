@@ -1,23 +1,31 @@
-import Address from "@/components/shopping-view/address";
-import img from "../../assets/account.jpg";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Navigate } from "react-router-dom";
+import Address from "@/components/shopping-view/address";
 import UserCartItemsContent from "@/components/shopping-view/cart-items-content";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 import { createNewOrder } from "@/store/shop/order-slice";
-import { Navigate } from "react-router-dom";
+import { fetchAllAddresses } from "@/store/shop/address-slice";
+import { fetchCartItems } from "@/store/shop/cart-slice";
 import { useToast } from "@/components/ui/use-toast";
+import img from "../../assets/account.jpg";
 
 function ShoppingCheckout() {
   const { cartItems } = useSelector((state) => state.shopCart);
   const { user } = useSelector((state) => state.auth);
   const { approvalURL } = useSelector((state) => state.shopOrder);
+const { addressList } = useSelector((state) => state.shopAddress);
   const [currentSelectedAddress, setCurrentSelectedAddress] = useState(null);
   const [isPaymentStart, setIsPaymemntStart] = useState(false);
   const dispatch = useDispatch();
   const { toast } = useToast();
 
-  console.log(currentSelectedAddress, "cartItems");
+  useEffect(() => {
+    if (user?.id) {
+      dispatch(fetchAllAddresses(user.id));
+      dispatch(fetchCartItems(user.id));
+    }
+  }, [dispatch, user]);
 
   const totalCartAmount =
     cartItems && cartItems.items && cartItems.items.length > 0
@@ -83,7 +91,7 @@ function ShoppingCheckout() {
 
     dispatch(createNewOrder(orderData))
   .then((data) => {
-    console.log(data, "sangam");
+    //console.log(data, "sangam");
     if (data?.payload?.success) {
       setIsPaymemntStart(true);
     } else {
@@ -123,7 +131,7 @@ function ShoppingCheckout() {
             ? cartItems.items.map((item) => (
                 <UserCartItemsContent cartItem={item} />
               ))
-            : null}
+            : <p>Your cart is empty</p>}
           <div className="mt-8 space-y-4">
             <div className="flex justify-between">
               <span className="font-bold">Total</span>

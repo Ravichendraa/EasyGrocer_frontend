@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import axiosInstance from "@/utils/axios";
 
 const initialState = {
   isLoading: false,
@@ -17,8 +17,8 @@ export const fetchAllFilteredProducts = createAsyncThunk(
       sortBy: sortParams,
     });
 
-    const result = await axios.get(
-      `https://easygrocer-backend.onrender.com/api/shop/products/get?${query}`
+    const result = await axiosInstance.get(
+      `http://localhost:5000/api/shop/products/get?${query}`
     );
 
     console.log(result);
@@ -30,11 +30,19 @@ export const fetchAllFilteredProducts = createAsyncThunk(
 export const fetchProductDetails = createAsyncThunk(
   "/products/fetchProductDetails",
   async (id) => {
-    const result = await axios.get(
-      `https://easygrocer-backend.onrender.com/api/shop/products/get/${id}`
+    const result = await axiosInstance.get(
+      `http://localhost:5000/api/shop/products/get/${id}`
     );
 
     return result?.data;
+  }
+);
+
+export const fetchProducts = createAsyncThunk(
+  "shop/fetchProducts",
+  async () => {
+    const response = await axiosInstance.get("/shop/products");
+    return response.data;
   }
 );
 
@@ -69,6 +77,16 @@ const shoppingProductSlice = createSlice({
       .addCase(fetchProductDetails.rejected, (state, action) => {
         state.isLoading = false;
         state.productDetails = null;
+      })
+      .addCase(fetchProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.productList = action.payload;
+      })
+      .addCase(fetchProducts.rejected, (state) => {
+        state.isLoading = false;
       });
   },
 });

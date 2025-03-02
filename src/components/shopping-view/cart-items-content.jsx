@@ -12,7 +12,7 @@ function UserCartItemsContent({ cartItem }) {
   const { toast } = useToast();
 
   function handleUpdateQuantity(getCartItem, typeOfAction) {
-    if (typeOfAction == "plus") {
+    if (typeOfAction === "plus") {
       let getCartItems = cartItems.items || [];
 
       if (getCartItems.length) {
@@ -25,7 +25,7 @@ function UserCartItemsContent({ cartItem }) {
         );
         const getTotalStock = productList[getCurrentProductIndex].totalStock;
 
-        console.log(getCurrentProductIndex, getTotalStock, "getTotalStock");
+        //console.log(getCurrentProductIndex, getTotalStock, "getTotalStock");
 
         if (indexOfCurrentCartItem > -1) {
           const getQuantity = getCartItems[indexOfCurrentCartItem].quantity;

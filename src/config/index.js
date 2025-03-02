@@ -114,7 +114,7 @@ export const addProductFormElements = [
       { id: "sunfeast", label: "Sunfeast" },
       // Chocolates Brands
       { id: "cadbury", label: "Cadbury" },
-      { id: "nestle", label: "Nestlé" },
+      { id: "nestle", label: "Nestle" },
       { id: "amul", label: "Amul" },
       // Soaps Brands
       { id: "santoor", label: "Santoor" },
@@ -315,7 +315,7 @@ export const brandOptionsMap = {
 
   // Chocolates Brands
   cadbury: "Cadbury",
-  nestle: "Nestlé",
+  nestle: "Nestle",
   amul: "Amul",
 
   // Soaps Brands
@@ -397,7 +397,7 @@ export const filterOptions = {
 
     // Chocolates Brands
     { id: "cadbury", label: "Cadbury" },
-    { id: "nestle", label: "Nestlé" },
+    { id: "nestle", label: "Nestle" },
     { id: "amul", label: "Amul" },
 
     // Soaps Brands
