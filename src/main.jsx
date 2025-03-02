@@ -5,10 +5,10 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 import { Toaster } from "./components/ui/toaster.jsx";
-import { initializeAuth } from "./store/auth-slice";
+// import { initializeAuth } from "./store/auth-slice";
 
-// Initialize authentication on app start
-store.dispatch(initializeAuth());
+// // Initialize authentication on app start
+// store.dispatch(initializeAuth());
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
