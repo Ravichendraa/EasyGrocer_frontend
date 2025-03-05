@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Card, CardContent, CardFooter } from "../ui/card";
 import { Button } from "../ui/button";
 import { brandOptionsMap, categoryOptionsMap } from "@/config";
@@ -14,14 +15,25 @@ function ShoppingProductTile({
       ? Math.round(((product.price - product.salePrice) / product.price) * 100)
       : 0;
 
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Card className="w-full max-w-sm mx-auto flex flex-col">
-      <div onClick={() => handleGetProductDetails(product?._id)} className="flex-grow">
-        <div className="relative">
+      <div
+        onClick={() => handleGetProductDetails(product?._id)}
+        className="flex-grow"
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+      >
+        <div className="relative overflow-hidden">
           <img
             src={product?.image}
             alt={product?.title}
             className="w-full h-48 object-contain rounded-t-lg"
+            style={{
+              transform: isHovered ? 'scale(1.1)' : 'scale(1)',
+              transition: 'transform 0.3s ease',
+            }}
           />
           {product?.totalStock === 0 ? (
             <Badge className="absolute top-2 left-2 bg-red-500 hover:bg-red-600">

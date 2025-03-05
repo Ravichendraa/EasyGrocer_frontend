@@ -7,6 +7,17 @@ function VideoSection() {
     window.scrollTo(0, 0); // Scroll to the top of the page
     navigate("/shop/listing");
   };
+  
+  function handleNavigateToListingPage(getCurrentItem, section) {
+    sessionStorage.removeItem("filters");
+    const currentFilter = {
+      [section]: [getCurrentItem.id],
+    };
+
+    sessionStorage.setItem("filters", JSON.stringify(currentFilter));
+    window.scrollTo(0, 0);
+    navigate(`/shop/listing`);
+  }
 
   return (
     <section className="w-full bg-black py-16">
@@ -17,19 +28,24 @@ function VideoSection() {
             loop
             muted
             playsInline
-            className="w-full"// Optional poster image
+            className="w-full"
           >
             <source src="/images/thumsup.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
 
           {/* Overlay Text */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/40 text-white text-center">
-            <h2 className="text-4xl font-bold mb-4">New Collection</h2>
-            <p className="text-lg mb-6">Discover our latest arrivals</p>
+          <div className="absolute inset-0 flex flex-col items-center justify-between bg-black/40 text-white text-center p-4">
+            {/* Other overlay elements, if any */}
+            <div className="flex-grow"></div>
             <button
-              className="bg-white/10 hover:bg-white/20 text-white border border-white px-6 py-2 rounded-lg transition"
-              onClick={handleShopNowClick}
+              className="bg-white/10 hover:bg-white/20 text-white border border-white px-6 py-2 rounded-lg transition mb-4"
+              onClick={() => handleNavigateToListingPage({ id: "coca_cola", label: "Coca-Cola", 
+                image: <img 
+                src="/images/coca_cola.png"
+                alt="Snacks"
+                className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300"
+              />  }, "brand")}
             >
               Shop Now
             </button>
