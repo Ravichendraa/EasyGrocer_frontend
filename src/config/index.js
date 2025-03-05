@@ -376,7 +376,7 @@ export const filterOptions = {
     { id: "soaps", label: "Soaps" },
     { id: "dals", label: "Dals" },
     { id: "snacks", label: "Snacks" },
-    { id: "Soft Drinks", label: "Soft Drinks" },
+    { id: "softdrinks", label: "Soft Drinks" },
     { id: "personal-care", label: "Personal Care" },
   ],
   brand: [

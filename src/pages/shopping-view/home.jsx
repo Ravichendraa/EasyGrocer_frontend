@@ -27,7 +27,7 @@ const categoriesWithIcon = [
   { id: "soaps", label: "Soaps", image: <img src="/images/soaps.jpeg" alt="Soaps" className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" /> },
   { id: "dals", label: "Dals", image: <img src="/images/dal.jpeg" alt="Dals" className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" /> },
   { id: "snacks", label: "Snacks", image: <img src="/images/snacks.jpeg" alt="Snacks" className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" /> },
-  { id: "soft-drinks", label: "Soft Drinks", image: <img src="/images/softdrinks.jpeg" alt="Soft Drinks" className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" /> },
+  { id: "softdrinks", label: "Soft Drinks", image: <img src="/images/softdrinks.jpeg" alt="Soft Drinks" className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" /> },
   { id: "personal-care", label: "Personal Care", image: <img src="/images/personal_care.webp" alt="Personal Care" className="w-full h-48 object-cover rounded-lg hover:scale-105 transition-transform duration-300" /> },
 ];
 

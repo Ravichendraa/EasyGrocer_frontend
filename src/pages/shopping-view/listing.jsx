@@ -190,7 +190,7 @@ function ShoppingListing() {
                   handleAddtoCart={handleAddtoCart}
                 />
               ))
-            : null}
+            : <div>No Products</div>}
         </div>
       </div>
       <ProductDetailsDialog
